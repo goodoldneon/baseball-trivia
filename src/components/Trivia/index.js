@@ -15,6 +15,7 @@ class Main extends Component {
     answers = answers.map((answer) => {
       const newAnswer = Object.assign({}, answer);
       newAnswer.isGuessed = false;
+      newAnswer.isForfeited = false;
       return newAnswer;
     });
 
@@ -34,6 +35,7 @@ class Main extends Component {
       .map((answer) => answer.lastName.toLowerCase())
       .indexOf(guess.toLowerCase());
 
+    // Incorrect guess.
     if (index === -1) {
       this.setState({
         guess,
@@ -42,7 +44,10 @@ class Main extends Component {
       return;
     }
 
-    answers[index].isGuessed = true;
+    // Can't get credit for an answer that's alreadt forfeited.
+    if (!answers[index].isForfeited) {
+      answers[index].isGuessed = true;
+    }
 
     this.setState({
       guess: '',
@@ -62,6 +67,15 @@ class Main extends Component {
     this.validateGuess();
   };
 
+  handleAnswerForfeit = (index) => {
+    let { answers } = this.state;
+
+    answers = answers.slice();
+    answers[index].isForfeited = true;
+
+    this.setState({ answers });
+  };
+
   render() {
     const { data } = this.props;
     const { guess, answers } = this.state;
@@ -76,7 +90,7 @@ class Main extends Component {
           onSubmit={this.handleGuessSubmit}
         />
 
-        <Answers answers={answers} />
+        <Answers answers={answers} onForfeit={this.handleAnswerForfeit} />
       </div>
     );
   }
