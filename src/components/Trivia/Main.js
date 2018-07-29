@@ -18,8 +18,8 @@ class Main extends Component {
     };
   }
 
-  validateGuess = (guess) => {
-    const { unguessedAnswers, guessedAnswers } = this.state;
+  validateGuess = () => {
+    const { guess, unguessedAnswers, guessedAnswers } = this.state;
 
     const index = unguessedAnswers
       .map((answer) => answer.lastName.toLowerCase())
@@ -48,7 +48,13 @@ class Main extends Component {
   handleGuessChange = (e) => {
     const { value } = e.target;
 
-    this.validateGuess(value);
+    this.setState({
+      guess: value,
+    });
+  };
+
+  handleGuessSubmit = () => {
+    this.validateGuess();
   };
 
   render() {
@@ -58,7 +64,11 @@ class Main extends Component {
     return (
       <div>
         <Question text={data.question} />
-        <Guess text={guess} onChange={this.handleGuessChange} />
+        <Guess
+          text={guess}
+          onChange={this.handleGuessChange}
+          onSubmit={this.handleGuessSubmit}
+        />
         <GuessedAnswers guessedAnswers={guessedAnswers} />
       </div>
     );
