@@ -13,7 +13,7 @@ const Answers = (props) => {
 
   return (
     <div className="answers">
-      <div className="row">
+      <div className="row header">
         <div>Name</div>
         <div>Debut Decade</div>
         <div>Teams</div>
