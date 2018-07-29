@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Question = (props) => {
   const { text } = props;
-  return <div>{text}</div>;
+  return <div dangerouslySetInnerHTML={{ __html: text}} />;
 };
 
 Question.propTypes = {

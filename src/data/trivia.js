@@ -1,6 +1,6 @@
 const trivia = {
   question:
-    'Since Yastrzemski in 1967, who are the only 2 players to lead their league in HR and H in the same season?',
+    'Since <a href="https://www.baseball-reference.com/players/y/yastrca01.shtml">Yastrzemski</a> in 1967, who are the only 2 players to lead their league in HR and H in the same season?',
   answers: [
     {
       lastName: 'Rice',
