@@ -21,7 +21,6 @@ a:hover {
 .guess {
   margin: auto;
   margin-top: 1em;
-  margin-bottom: 1em;
   width: 400px;
   display: flex;
 }
@@ -74,4 +73,12 @@ a:hover {
 
 .answers .is-forfeited {
   background-color: #fff3cd;
+}
+
+.detail {
+  width: 400px;
+  margin: auto;
+  background-color: #eee;
+  padding: 0.5em;
+  box-sizing: border-box;
 }

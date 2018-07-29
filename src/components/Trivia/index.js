@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Guess from './Guess';
 import Answers from './Answers';
+import Detail from './Detail';
+import Guess from './Guess';
 import Question from './Question';
 
 class Main extends Component {
@@ -89,6 +90,8 @@ class Main extends Component {
           onChange={this.handleGuessChange}
           onSubmit={this.handleGuessSubmit}
         />
+
+        <Detail answers={answers} />
 
         <Answers answers={answers} onForfeit={this.handleAnswerForfeit} />
       </div>
