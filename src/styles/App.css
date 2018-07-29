@@ -80,6 +80,19 @@ a:hover {
   transition-duration: 0.4s;
 }
 
+.answers .reveal-btn {
+  background-color: #f8f9fa;
+  color: black;
+  font-size: 1.2em;
+  border: 1px solid #e2e6ea;
+  transition-duration: 0.2s;
+}
+
+.answers .reveal-btn:hover {
+  background-color: #e2e6ea;
+  transition-duration: 0.4s;
+}
+
 .detail {
   width: 400px;
   margin: auto;

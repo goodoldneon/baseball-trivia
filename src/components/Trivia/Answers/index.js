@@ -52,6 +52,7 @@ Answers.propTypes = {
     PropTypes.shape({
       lastName: PropTypes.string.isRequired,
       fullName: PropTypes.string.isRequired,
+      debutDecade: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
       isGuessed: PropTypes.bool.isRequired,
       isForfeited: PropTypes.bool.isRequired,

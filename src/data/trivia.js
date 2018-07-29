@@ -5,11 +5,13 @@ const trivia = {
     {
       lastName: 'Rice',
       fullName: 'Jim Rice',
+      debutDecade: '1970s',
       link: 'https://www.baseball-reference.com/players/r/riceji01.shtml',
     },
     {
       lastName: 'Bichette',
       fullName: 'Dante Bichette',
+      debutDecade: '1980s',
       link: 'https://www.baseball-reference.com/players/b/bicheda01.shtml',
     },
   ],

@@ -31,11 +31,13 @@ describe('trivia object (src/data/trivia.js)', () => {
         answers.map((answer) => expect(answer.fullName).to.be.a('string'));
       });
 
+      it(`has a "debutDecade" property, which is a string`, () => {
+        answers.map((answer) => expect(answer.debutDecade).to.be.a('string'));
+      });
+
       it(`has a "link" property, which is a string`, () => {
         answers.map((answer) => expect(answer.link).to.be.a('string'));
       });
     });
-
-    //   // it(`only contains objects`)
   });
 });

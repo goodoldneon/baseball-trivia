@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import ClickToReveal from './ClickToReveal';
+
 const Row = styled.div`
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
+
+const Cell = styled.div``;
 
 const Player = (props) => {
   function handleForfeit(e) {
@@ -42,15 +46,19 @@ const Player = (props) => {
   }
 
   const { data } = props;
-  const { fullName, link, isGuessed, isForfeited } = data;
+  const { fullName, link, debutDecade, isGuessed, isForfeited } = data;
   const isRevealed = isGuessed || isForfeited;
   const className = buildClassName(isGuessed, isForfeited);
 
   return (
     <Row className={className}>
-      <div>{renderName(fullName, link, isRevealed)}</div>
-      <div />
-      <div />
+      <Cell>{renderName(fullName, link, isRevealed)}</Cell>
+
+      <Cell>
+        <ClickToReveal content={debutDecade} />
+      </Cell>
+
+      <Cell />
     </Row>
   );
 };
@@ -59,6 +67,7 @@ Player.propTypes = {
   data: PropTypes.shape({
     fullName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
+    debutDecade: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     isGuessed: PropTypes.bool.isRequired,
     isForfeited: PropTypes.bool.isRequired,
