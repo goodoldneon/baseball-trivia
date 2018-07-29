@@ -1,4 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "jest.pathToJest": "node_modules/jest/bin/jest.js"
+  "mocha.path": "node_modules/mocha",
+  "mocha.requires": ["babel-register"],
+  "mocha.files.glob": "test/**/*.test.js"
 }
