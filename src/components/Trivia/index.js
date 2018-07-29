@@ -44,16 +44,9 @@ class Main extends Component {
 
     answers[index].isGuessed = true;
 
-    // const newGuessedAnswer = unguessedAnswers[index];
-
     this.setState({
       guess: '',
       answers,
-      // unguessedAnswers: [
-      //   ...unguessedAnswers.slice(0, index),
-      //   ...unguessedAnswers.slice(index + 1),
-      // ],
-      // guessedAnswers: [...guessedAnswers, newGuessedAnswer],
     });
   };
 
