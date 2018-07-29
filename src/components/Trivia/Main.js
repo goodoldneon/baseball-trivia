@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Guess from './Guess';
-import GuessedAnswers from './GuessedAnswers';
+import Answers from './Answers';
 import Question from './Question';
 
 class Main extends Component {
@@ -10,18 +10,27 @@ class Main extends Component {
     super();
 
     const { data } = props;
+    let { answers } = data;
+
+    answers = answers.map((answer) => {
+      const newAnswer = Object.assign({}, answer);
+      newAnswer.isGuessed = false;
+      return newAnswer;
+    });
 
     this.state = {
       guess: '',
-      unguessedAnswers: data.answers,
-      guessedAnswers: [],
+      answers,
     };
   }
 
   validateGuess = () => {
-    const { guess, unguessedAnswers, guessedAnswers } = this.state;
+    const { guess } = this.state;
+    let { answers } = this.state;
 
-    const index = unguessedAnswers
+    answers = answers.slice();
+
+    const index = answers
       .map((answer) => answer.lastName.toLowerCase())
       .indexOf(guess.toLowerCase());
 
@@ -33,15 +42,18 @@ class Main extends Component {
       return;
     }
 
-    const newGuessedAnswer = unguessedAnswers[index];
+    answers[index].isGuessed = true;
+
+    // const newGuessedAnswer = unguessedAnswers[index];
 
     this.setState({
       guess: '',
-      unguessedAnswers: [
-        ...unguessedAnswers.slice(0, index),
-        ...unguessedAnswers.slice(index + 1),
-      ],
-      guessedAnswers: [...guessedAnswers, newGuessedAnswer],
+      answers,
+      // unguessedAnswers: [
+      //   ...unguessedAnswers.slice(0, index),
+      //   ...unguessedAnswers.slice(index + 1),
+      // ],
+      // guessedAnswers: [...guessedAnswers, newGuessedAnswer],
     });
   };
 
@@ -59,17 +71,19 @@ class Main extends Component {
 
   render() {
     const { data } = this.props;
-    const { guess, guessedAnswers } = this.state;
+    const { guess, answers } = this.state;
 
     return (
       <div>
         <Question text={data.question} />
+
         <Guess
           text={guess}
           onChange={this.handleGuessChange}
           onSubmit={this.handleGuessSubmit}
         />
-        <GuessedAnswers guessedAnswers={guessedAnswers} />
+
+        <Answers answers={answers} />
       </div>
     );
   }

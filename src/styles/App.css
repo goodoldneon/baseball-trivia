@@ -55,3 +55,23 @@ a:hover {
   background-color: #0162cc;
   transition-duration: 0.4s;
 }
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+}
+
+.answers .row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  padding: 0.5em;
+}
+
+.answers .is-guessed {
+  background-color: #d4edda;
+}
+
+.answers .is-forfeited {
+  background-color: #fff3cd;
+}
