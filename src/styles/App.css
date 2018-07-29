@@ -67,6 +67,19 @@ a:hover {
   background-color: #fff3cd;
 }
 
+.answers .forfeit-btn {
+  background-color: #dc3545;
+  color: white;
+  font-size: 1.2em;
+  border: 1px solid #c82333;
+  transition-duration: 0.2s;
+}
+
+.answers .forfeit-btn:hover {
+  background-color: #c82333;
+  transition-duration: 0.4s;
+}
+
 .detail {
   width: 400px;
   margin: auto;

@@ -35,7 +35,7 @@ const Player = (props) => {
     }
 
     return (
-      <button type="button" onClick={handleForfeit}>
+      <button type="button" onClick={handleForfeit} className="forfeit-btn">
         Forfeit
       </button>
     );
