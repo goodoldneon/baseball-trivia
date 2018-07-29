@@ -1,5 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Row = styled.div`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
 
 const Player = (props) => {
   function handleForfeit(e) {
@@ -40,11 +47,11 @@ const Player = (props) => {
   const className = buildClassName(isGuessed, isForfeited);
 
   return (
-    <div className={className}>
+    <Row className={className}>
       <div>{renderName(fullName, link, isRevealed)}</div>
       <div />
       <div />
-    </div>
+    </Row>
   );
 };
 

@@ -1,7 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Player from './Player';
+
+const Wrap = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
+const Row = styled.div`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
 
 const Answers = (props) => {
   function handleForfeit(index) {
@@ -12,12 +24,12 @@ const Answers = (props) => {
   const { answers } = props;
 
   return (
-    <div className="answers">
-      <div className="row header">
+    <Wrap className="answers">
+      <Row className="row header">
         <div>Name</div>
         <div>Debut Decade</div>
         <div>Teams</div>
-      </div>
+      </Row>
 
       {answers.map((answer, index) => {
         const { fullName } = answer;
@@ -31,7 +43,7 @@ const Answers = (props) => {
           />
         );
       })}
-    </div>
+    </Wrap>
   );
 };
 

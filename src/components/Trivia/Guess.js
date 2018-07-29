@@ -1,5 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Wrap = styled.form`
+  display: flex;
+`;
+
+const InputWrap = styled.div`
+  width: 70%;
+`;
+
+const ButtonWrap = styled.div`
+  flex-grow: 1;
+`;
 
 class Guess extends React.Component {
   handleSubmit = (e) => {
@@ -13,20 +26,20 @@ class Guess extends React.Component {
     const { text, onChange } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit} className="guess">
-        <div className="input-wrap">
+      <Wrap onSubmit={this.handleSubmit} className="guess">
+        <InputWrap>
           <input
             value={text}
             onChange={onChange}
             type="text"
             placeholder="Player's last name"
           />
-        </div>
+        </InputWrap>
 
-        <div className="button-wrap">
+        <ButtonWrap>
           <button type="submit">Guess</button>
-        </div>
-      </form>
+        </ButtonWrap>
+      </Wrap>
     );
   }
 }

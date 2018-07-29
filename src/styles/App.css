@@ -22,11 +22,6 @@ a:hover {
   margin: auto;
   margin-top: 1em;
   width: 400px;
-  display: flex;
-}
-
-.guess .input-wrap {
-  width: 70%;
 }
 
 .guess input {
@@ -34,10 +29,6 @@ a:hover {
   padding: 0.5em;
   font-size: 1.5em;
   box-sizing: border-box;
-}
-
-.guess .button-wrap {
-  flex-grow: 1;
 }
 
 .guess button {
@@ -56,15 +47,10 @@ a:hover {
 }
 
 .answers {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
   margin-top: 1em;
 }
 
 .answers .row {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
   padding: 0.5em;
   border-bottom: 1px solid #ccc;
 }
