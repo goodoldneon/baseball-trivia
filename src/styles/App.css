@@ -1,28 +1,22 @@
-.App {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-align: center;
+  color: #1a1a1a;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+a {
+  text-decoration: none;
+  color: #1a1a1a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.guess {
+  margin: 1em;
 }
 
-.App-title {
+.guess input {
+  width: 400px;
   font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  padding: 0.5em;
 }
