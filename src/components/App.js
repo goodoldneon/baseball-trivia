@@ -5,7 +5,7 @@ import trivia from '../data/trivia';
 import '../styles/App.css';
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <Trivia data={trivia} />
   </div>
 );

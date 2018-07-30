@@ -18,6 +18,12 @@ a:hover {
   transition-duration: 0.4s;
 }
 
+.app {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
 .guess {
   margin: auto;
   margin-top: 1em;
