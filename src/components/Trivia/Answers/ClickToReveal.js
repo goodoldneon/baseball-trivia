@@ -47,7 +47,7 @@ class ClickToReveal extends React.Component {
 }
 
 ClickToReveal.propTypes = {
-  content: PropTypes.element.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default ClickToReveal;

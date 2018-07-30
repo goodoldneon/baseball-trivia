@@ -46,7 +46,16 @@ const Player = (props) => {
   }
 
   const { data } = props;
-  const { fullName, link, debutDecade, isGuessed, isForfeited } = data;
+
+  const {
+    fullName,
+    link,
+    debutDecade,
+    mainTeam,
+    isGuessed,
+    isForfeited,
+  } = data;
+
   const isRevealed = isGuessed || isForfeited;
   const className = buildClassName(isGuessed, isForfeited);
 
@@ -58,7 +67,9 @@ const Player = (props) => {
         <ClickToReveal content={debutDecade} />
       </Cell>
 
-      <Cell />
+      <Cell>
+        <ClickToReveal content={mainTeam} />
+      </Cell>
     </Row>
   );
 };
@@ -67,7 +78,8 @@ Player.propTypes = {
   data: PropTypes.shape({
     fullName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
-    debutDecade: PropTypes.string.isRequired,
+    debutDecade: PropTypes.string,
+    mainTeam: PropTypes.string,
     link: PropTypes.string.isRequired,
     isGuessed: PropTypes.bool.isRequired,
     isForfeited: PropTypes.bool.isRequired,
