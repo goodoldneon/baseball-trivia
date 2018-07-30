@@ -13,7 +13,7 @@ class ClickToReveal extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.isContentVisible !== state.isContentVisible) {
+    if (props.isContentVisible && !state.isContentVisible) {
       const { isContentVisible } = props;
 
       return {
