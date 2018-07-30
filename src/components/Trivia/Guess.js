@@ -15,6 +15,27 @@ const ButtonWrap = styled.div`
 `;
 
 class Guess extends React.Component {
+  constructor(props) {
+    super();
+
+    const { lastNames } = props;
+    const isLastNameValid = lastNames.length === 0;
+
+    this.state = {
+      isLastNameValid,
+    };
+  }
+
+  handleChange = (e) => {
+    const { onChange, lastNames } = this.props;
+    onChange(e);
+
+    if (lastNames.length > 0) {
+      const { value } = e.target;
+      this.validateInput(value);
+    }
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,22 +43,32 @@ class Guess extends React.Component {
     onSubmit();
   };
 
+  validateInput = (text) => {
+    const { lastNames } = this.props;
+    const isLastNameValid = lastNames.includes(text.toLowerCase());
+
+    this.setState({ isLastNameValid });
+  };
+
   render() {
-    const { text, onChange } = this.props;
+    const { text } = this.props;
+    const { isLastNameValid } = this.state;
 
     return (
       <Wrap onSubmit={this.handleSubmit} className="guess">
         <InputWrap>
           <input
             value={text}
-            onChange={onChange}
+            onChange={this.handleChange}
             type="text"
             placeholder="Player's last name"
           />
         </InputWrap>
 
         <ButtonWrap>
-          <button type="submit">Guess</button>
+          <button type="submit" disabled={!isLastNameValid}>
+            Guess
+          </button>
         </ButtonWrap>
       </Wrap>
     );
@@ -46,6 +77,7 @@ class Guess extends React.Component {
 
 Guess.propTypes = {
   text: PropTypes.string.isRequired,
+  lastNames: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };

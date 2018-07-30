@@ -54,9 +54,47 @@ a:hover {
   transition-duration: 0.2s;
 }
 
-.guess button:hover {
+.guess button:disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.guess button:hover:enabled {
   background-color: #0162cc;
   transition-duration: 0.4s;
+}
+
+.detail {
+  width: 400px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.detail .stats {
+  padding: 0.5em;
+  background-color: #eee;
+}
+
+.detail .last-name-status {
+  font-size: 0.8em;
+}
+
+.detail .last-name-status .loading {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0.5em;
+}
+
+.detail .last-name-status .success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.5em;
+}
+
+.detail .last-name-status .error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.5em;
 }
 
 .answers {
@@ -105,12 +143,4 @@ a:hover {
 .answers .reveal-btn:hover {
   background-color: #e2e6ea;
   transition-duration: 0.4s;
-}
-
-.detail {
-  width: 400px;
-  margin: auto;
-  background-color: #eee;
-  padding: 0.5em;
-  box-sizing: border-box;
 }

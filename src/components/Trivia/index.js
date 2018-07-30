@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import jsonp from 'jsonp';
+import { uniq } from 'lodash';
 
 import Answers from './Answers';
 import Detail from './Detail';
@@ -23,8 +25,40 @@ class Main extends Component {
     this.state = {
       guess: '',
       answers,
+      lastNames: [],
+      lastNamesStatus: 'loading',
     };
   }
+
+  componentDidMount() {
+    this.getPlayers();
+  }
+
+  getPlayers = () => {
+    const url =
+      'http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=baseball&response_format=JSON';
+
+    jsonp(url, null, (err, data) => {
+      if (err) {
+        this.setState({
+          lastNamesStatus: 'error',
+        });
+
+        // return console.error(err.message);
+        return;
+      }
+
+      const lastNames = data.body.players.map((player) =>
+        player.lastname.toLowerCase(),
+      );
+      const uniqueLastNames = uniq(lastNames);
+
+      this.setState({
+        lastNames: uniqueLastNames,
+        lastNamesStatus: 'success',
+      });
+    });
+  };
 
   validateGuess = () => {
     const { guess } = this.state;
@@ -79,7 +113,7 @@ class Main extends Component {
 
   render() {
     const { data } = this.props;
-    const { guess, answers } = this.state;
+    const { guess, answers, lastNames, lastNamesStatus } = this.state;
 
     return (
       <div>
@@ -87,11 +121,12 @@ class Main extends Component {
 
         <Guess
           text={guess}
+          lastNames={lastNames}
           onChange={this.handleGuessChange}
           onSubmit={this.handleGuessSubmit}
         />
 
-        <Detail answers={answers} />
+        <Detail answers={answers} lastNamesStatus={lastNamesStatus} />
 
         <Answers answers={answers} onForfeit={this.handleAnswerForfeit} />
       </div>
