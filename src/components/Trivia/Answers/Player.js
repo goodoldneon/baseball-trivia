@@ -10,7 +10,13 @@ const Row = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
 `;
 
-const Cell = styled.div``;
+const Cell = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: middle;
+  justify-content: center;
+`;
 
 const Player = (props) => {
   function handleForfeit(e) {

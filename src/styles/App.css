@@ -51,6 +51,7 @@ a:hover {
 }
 
 .answers .row {
+  height: 2.2em;
   padding: 0.5em;
   border-bottom: 1px solid #ccc;
 }

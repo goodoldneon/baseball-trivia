@@ -1,14 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const Wrap = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  align-content: middle;
-  justify-content: center;
-`;
 
 class ClickToReveal extends React.Component {
   constructor() {
@@ -42,7 +33,7 @@ class ClickToReveal extends React.Component {
       );
     }
 
-    return <Wrap>{innerStuff}</Wrap>;
+    return <Fragment>{innerStuff}</Fragment>;
   }
 }
 
