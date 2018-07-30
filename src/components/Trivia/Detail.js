@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  grid-template-columns: 1fr 1fr;
 `;
 
 const Row = styled.div`
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  grid-template-columns: 1fr 1fr;
 `;
 
 const Detail = (props) => {
@@ -18,22 +18,16 @@ const Detail = (props) => {
   const correctCount = answers.filter((answer) => answer.isGuessed).length;
   const forfeitCount = answers.filter((answer) => answer.isForfeited).length;
 
-  const remainingCount = answers.filter(
-    (answer) => !answer.isGuessed && !answer.isForfeited,
-  ).length;
-
   return (
     <Wrap className="detail">
       <Row>
         <div>Correct</div>
         <div>Forfeited</div>
-        <div>Remaining</div>
       </Row>
 
       <Row>
         <div>{correctCount}</div>
         <div>{forfeitCount}</div>
-        <div>{remainingCount}</div>
       </Row>
     </Wrap>
   );
