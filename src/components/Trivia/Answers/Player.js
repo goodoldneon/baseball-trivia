@@ -70,11 +70,11 @@ const Player = (props) => {
       <Cell>{renderName(fullName, link, isRevealed)}</Cell>
 
       <Cell>
-        <ClickToReveal content={debutDecade} />
+        <ClickToReveal content={debutDecade} isContentVisible={isRevealed} />
       </Cell>
 
       <Cell>
-        <ClickToReveal content={mainTeam} />
+        <ClickToReveal content={mainTeam} isContentVisible={isRevealed} />
       </Cell>
     </Row>
   );

@@ -2,12 +2,27 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class ClickToReveal extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
+    const { isContentVisible } = props;
+
     this.state = {
-      isContentVisible: false,
+      isContentVisible,
     };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.isContentVisible !== state.isContentVisible) {
+      const { isContentVisible } = props;
+
+      return {
+        ...state,
+        isContentVisible,
+      };
+    }
+
+    return null;
   }
 
   revealContent = () => {
@@ -39,6 +54,11 @@ class ClickToReveal extends React.Component {
 
 ClickToReveal.propTypes = {
   content: PropTypes.string.isRequired,
+  isContentVisible: PropTypes.bool,
+};
+
+ClickToReveal.defaultProps = {
+  isContentVisible: false,
 };
 
 export default ClickToReveal;
