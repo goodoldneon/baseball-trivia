@@ -3,14 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Player from './Player';
+import { Row, Cell } from './styled';
 
 const Wrap = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-
-const Row = styled.div`
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
@@ -26,9 +21,9 @@ const Answers = (props) => {
   return (
     <Wrap className="answers">
       <Row className="row header">
-        <div>Name</div>
-        <div>Debut Decade</div>
-        <div>Teams</div>
+        <Cell>Name</Cell>
+        <Cell>Debut Decade</Cell>
+        <Cell>Teams</Cell>
       </Row>
 
       {answers.map((answer, index) => {

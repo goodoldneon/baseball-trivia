@@ -1,22 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import ClickToReveal from './ClickToReveal';
-
-const Row = styled.div`
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-
-const Cell = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  align-content: middle;
-  justify-content: center;
-`;
+import { Row, Cell } from './styled';
 
 const Player = (props) => {
   function handleForfeit(e) {
