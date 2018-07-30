@@ -39,8 +39,8 @@ describe('trivia object (src/data/trivia.js)', () => {
         answers.map((answer) => expect(answer.mainTeam).to.be.a('string'));
       });
 
-      it(`has a "link" property, which is a string`, () => {
-        answers.map((answer) => expect(answer.link).to.be.a('string'));
+      it(`has a "brefId" property, which is a string`, () => {
+        answers.map((answer) => expect(answer.brefId).to.be.a('string'));
       });
     });
   });

@@ -21,10 +21,14 @@ const Player = (props) => {
     return className;
   }
 
-  function renderName(fullName, link, isRevealed) {
+  function renderName(fullName, brefId, isRevealed) {
     if (isRevealed) {
+      const brefUrlBase = 'https://www.baseball-reference.com/players';
+      const brefIdFirstChar = brefId.substring(0, 1);
+      const brefUrl = `${brefUrlBase}/${brefIdFirstChar}/${brefId}.shtml`;
+
       return (
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <a href={brefUrl} target="_blank" rel="noopener noreferrer">
           {fullName}
         </a>
       );
@@ -41,9 +45,9 @@ const Player = (props) => {
 
   const {
     fullName,
-    link,
     debutDecade,
     mainTeam,
+    brefId,
     isGuessed,
     isForfeited,
   } = data;
@@ -53,7 +57,7 @@ const Player = (props) => {
 
   return (
     <Row className={className}>
-      <Cell>{renderName(fullName, link, isRevealed)}</Cell>
+      <Cell>{renderName(fullName, brefId, isRevealed)}</Cell>
 
       <Cell>
         <ClickToReveal content={debutDecade} isContentVisible={isRevealed} />
@@ -72,7 +76,7 @@ Player.propTypes = {
     lastName: PropTypes.string.isRequired,
     debutDecade: PropTypes.string,
     mainTeam: PropTypes.string,
-    link: PropTypes.string.isRequired,
+    brefId: PropTypes.string.isRequired,
     isGuessed: PropTypes.bool.isRequired,
     isForfeited: PropTypes.bool.isRequired,
   }).isRequired,

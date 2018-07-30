@@ -23,7 +23,7 @@ const Answers = (props) => {
       <Row className="row header">
         <Cell>Name</Cell>
         <Cell>Debut Decade</Cell>
-        <Cell>Teams</Cell>
+        <Cell>Main Team</Cell>
       </Row>
 
       {answers.map((answer, index) => {
@@ -49,7 +49,7 @@ Answers.propTypes = {
       fullName: PropTypes.string.isRequired,
       debutDecade: PropTypes.string.isRequired,
       mainTeam: PropTypes.string,
-      link: PropTypes.string.isRequired,
+      brefId: PropTypes.string.isRequired,
       isGuessed: PropTypes.bool.isRequired,
       isForfeited: PropTypes.bool.isRequired,
     }),

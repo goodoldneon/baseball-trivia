@@ -7,14 +7,14 @@ const trivia = {
       fullName: 'Jim Rice',
       debutDecade: '1970s',
       mainTeam: 'BOS',
-      link: 'https://www.baseball-reference.com/players/r/riceji01.shtml',
+      brefId: 'riceji01',
     },
     {
       lastName: 'Bichette',
       fullName: 'Dante Bichette',
       debutDecade: '1980s',
       mainTeam: 'COL',
-      link: 'https://www.baseball-reference.com/players/b/bicheda01.shtml',
+      brefId: 'bicheda01',
     },
   ],
 };
