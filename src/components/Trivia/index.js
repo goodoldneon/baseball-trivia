@@ -106,7 +106,7 @@ Main.propTypes = {
       PropTypes.shape({
         lastName: PropTypes.string.isRequired,
         fullName: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
+        brefId: PropTypes.string.isRequired,
       }),
     ).isRequired,
   }).isRequired,
